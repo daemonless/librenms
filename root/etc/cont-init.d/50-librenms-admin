@@ -22,8 +22,23 @@ count=$(mariadb -N -h "$DB_HOST" -P "$DB_PORT" -u "${DB_USERNAME:-librenms}" -p"
 [ "$count" = "0" ] || exit 0
 
 cd /usr/local/www/librenms || exit 0
-if s6-setuidgid bsd ./lnms user:add --role=admin --password="$ADMIN_PASSWORD" --no-interaction "$ADMIN_USER"; then
+LNMS="s6-setuidgid bsd ./lnms"
+# The operator chose this password. LibreNMS's rules for passwords typed into
+# its own UI (8+ characters, not in a known data leak) refused "admin" and
+# "adminadmin" here and left no admin at all -- so they are lifted for this one
+# command and put back after. Put back by value: `config:set <key>` with no
+# value asks for confirmation, which is "no" without a terminal. config:get
+# answers the default (true, 8) while nothing is set, so a fresh install ends
+# up exactly where it started.
+uncompromised=$($LNMS config:get password.uncompromised 2>/dev/null)
+min_length=$($LNMS config:get password.min_length 2>/dev/null)
+$LNMS config:set password.uncompromised false >/dev/null 2>&1
+$LNMS config:set password.min_length 1 >/dev/null 2>&1
+if out=$($LNMS user:add --role=admin --password="$ADMIN_PASSWORD" --no-interaction "$ADMIN_USER" 2>&1); then
     echo "[librenms] created admin user $ADMIN_USER"
 else
-    echo "[librenms] WARNING: could not create admin $ADMIN_USER -- LibreNMS refuses passwords found in known data leaks; set another ADMIN_PASSWORD and restart"
+    echo "$out"
+    echo "[librenms] WARNING: could not create admin $ADMIN_USER -- see above; fix and restart"
 fi
+$LNMS config:set password.uncompromised "${uncompromised:-true}" >/dev/null 2>&1
+$LNMS config:set password.min_length "${min_length:-8}" >/dev/null 2>&1

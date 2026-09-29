@@ -36,8 +36,9 @@ x-daemonless:
     ## First login
 
     Set `ADMIN_USER` and `ADMIN_PASSWORD` and the admin account is created on
-    first start. LibreNMS refuses passwords that appear in known data leaks; if
-    that happens the container log says so -- pick another and restart.
+    first start, with the password exactly as given. LibreNMS's own rules for
+    passwords (at least 8 characters, none from a known data leak) apply to
+    passwords changed later in its UI, not to this one.
 
   docs:
     env:
@@ -55,7 +56,7 @@ x-daemonless:
         desc: "MariaDB root password (the database password unless set)"
         level: advanced
       ADMIN_USER: "LibreNMS admin account, created on first start"
-      ADMIN_PASSWORD: "Password for that admin account"
+      ADMIN_PASSWORD: "Password for that admin account, used as given (LibreNMS's own rules apply to passwords changed later in its UI)"
       APP_URL: "Address you open LibreNMS at, e.g. http://192.168.1.10:8080 (used in links it sends)"
       CONFIG_LOCATION: "Host folder for LibreNMS data: settings, RRD files, logs"
       DB_DATA_LOCATION: "Host folder for the MariaDB data"

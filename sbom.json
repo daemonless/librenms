@@ -1,0 +1,2479 @@
+{
+  "generated": "2026-09-29T22:03:18Z",
+  "image": "librenms",
+  "tags": {
+    "pkg": {
+      "app_version": "26.6.1,1",
+      "arch": "amd64",
+      "generated": "2026-09-29T22:01:24Z",
+      "packages": {
+        "dotnet": [],
+        "freebsd": [
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-audit-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-blocklist",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-bzip2-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-certctl",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-clibs",
+            "version": "15.1p2"
+          },
+          {
+            "licenses": [
+              "CDDL-1.0"
+            ],
+            "name": "FreeBSD-ctf-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD-3-Clause"
+            ],
+            "name": "FreeBSD-dhclient",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-fetch",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-kerberos-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-libarchive",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-libbsdstat",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-libcasper",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-libcompiler_rt-dev",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-libexecinfo",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-libldns",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-libmagic",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-libucl",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-locales",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-mandoc",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-mtree",
+            "version": "15.1p2"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-ncurses-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-openssl",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-openssl-lib",
+            "version": "15.1p3"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-pam-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-pkg-bootstrap",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-rc",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-resolvconf",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-runtime",
+            "version": "15.1p3"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-tcpd",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-ufs-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-utilities",
+            "version": "15.1p2"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-xz-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "CDDL-1.0"
+            ],
+            "name": "FreeBSD-zfs-lib",
+            "version": "15.1p1"
+          },
+          {
+            "licenses": [
+              "Zlib"
+            ],
+            "name": "FreeBSD-zlib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "PD"
+            ],
+            "name": "FreeBSD-zoneinfo",
+            "version": "15.1p2"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-zstd-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "GPLv3+"
+            ],
+            "name": "bash",
+            "version": "5.3.15"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "brotli",
+            "version": "1.2.0,1"
+          },
+          {
+            "licenses": [
+              "MPL20"
+            ],
+            "name": "ca_root_nss",
+            "version": "3.129"
+          },
+          {
+            "licenses": [
+              "LGPL21",
+              "MPL11"
+            ],
+            "name": "cairo",
+            "version": "1.18.2,3"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "curl",
+            "version": "8.22.0"
+          },
+          {
+            "licenses": [
+              "BSD4CLAUSE"
+            ],
+            "name": "cyrus-sasl",
+            "version": "2.1.28_6"
+          },
+          {
+            "licenses": [
+              "AMS",
+              "AREV",
+              "BITSTREAM"
+            ],
+            "name": "dejavu",
+            "version": "2.37_4"
+          },
+          {
+            "licenses": [
+              "GPLv2"
+            ],
+            "name": "dmidecode",
+            "version": "3.7"
+          },
+          {
+            "licenses": [
+              "GPLv2"
+            ],
+            "name": "dnsmasq",
+            "version": "2.93,1"
+          },
+          {
+            "licenses": [
+              "ISCL"
+            ],
+            "name": "execline",
+            "version": "2.9.8.1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "expat",
+            "version": "2.8.2"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "fontconfig",
+            "version": "2.17.1,1"
+          },
+          {
+            "licenses": [
+              "PreviousBSD"
+            ],
+            "name": "fping",
+            "version": "5.5"
+          },
+          {
+            "licenses": [
+              "GPLv2+",
+              "FTL"
+            ],
+            "name": "freetype2",
+            "version": "2.14.3"
+          },
+          {
+            "licenses": [
+              "LGPL21"
+            ],
+            "name": "fribidi",
+            "version": "1.0.16"
+          },
+          {
+            "licenses": [
+              "GPLv3+",
+              "LGPL21+"
+            ],
+            "name": "gettext-runtime",
+            "version": "1.0_1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "giflib",
+            "version": "5.2.2"
+          },
+          {
+            "licenses": [
+              "LGPL20"
+            ],
+            "name": "glib",
+            "version": "2.86.4,2"
+          },
+          {
+            "licenses": [
+              "LGPL3"
+            ],
+            "name": "gmp",
+            "version": "6.3.0"
+          },
+          {
+            "licenses": [
+              "GPLv3+",
+              "LGPL21+"
+            ],
+            "name": "gnutls",
+            "version": "3.8.13"
+          },
+          {
+            "licenses": [
+              "MPL20",
+              "GPLv2",
+              "LGPL21"
+            ],
+            "name": "graphite2",
+            "version": "1.3.15"
+          },
+          {
+            "licenses": [
+              "EPL"
+            ],
+            "name": "graphviz",
+            "version": "15.1.0_3"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "harfbuzz",
+            "version": "14.2.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "indexinfo",
+            "version": "0.3.1_1"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "ipmitool",
+            "version": "1.8.19_3"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "jansson",
+            "version": "2.15.1_1"
+          },
+          {
+            "licenses": [
+              "GPLv2+"
+            ],
+            "name": "jbigkit",
+            "version": "2.1_3"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE",
+              "IJG",
+              "ZLIB"
+            ],
+            "name": "jpeg-turbo",
+            "version": "3.1.4.1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "jq",
+            "version": "1.8.2"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "json-c",
+            "version": "0.19_1"
+          },
+          {
+            "licenses": [
+              "APACHE20"
+            ],
+            "name": "lerc",
+            "version": "4.1.0"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libICE",
+            "version": "1.1.2,1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libSM",
+            "version": "1.2.6,1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libX11",
+            "version": "1.8.13_1,1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libXau",
+            "version": "1.0.12"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libXaw",
+            "version": "1.0.16,2"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libXdmcp",
+            "version": "1.1.5"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libXext",
+            "version": "1.3.7,1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libXft",
+            "version": "2.3.8"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libXmu",
+            "version": "1.3.1,1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libXpm",
+            "version": "3.5.19"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libXrender",
+            "version": "0.9.12"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libXt",
+            "version": "1.3.1,1"
+          },
+          {
+            "licenses": [
+              "LGPL21+"
+            ],
+            "name": "libdatrie",
+            "version": "0.2.14_1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libdeflate",
+            "version": "1.25"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "libedit",
+            "version": "3.1.20260512,1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libffi",
+            "version": "3.6.0"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libfmt",
+            "version": "12.1.0"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libfontenc",
+            "version": "1.1.9"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libgd",
+            "version": "2.3.3_13,1"
+          },
+          {
+            "licenses": [
+              "GPLv3"
+            ],
+            "name": "libiconv",
+            "version": "1.18_1"
+          },
+          {
+            "licenses": [
+              "GPLv3"
+            ],
+            "name": "libidn2",
+            "version": "2.3.8"
+          },
+          {
+            "licenses": [
+              "LGPL21"
+            ],
+            "name": "libltdl",
+            "version": "2.5.4"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE",
+              "GPLv2"
+            ],
+            "name": "liblz4",
+            "version": "1.10.0_2,1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libnghttp2",
+            "version": "1.69.0"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libpsl",
+            "version": "0.22.0"
+          },
+          {
+            "licenses": [
+              "GPLv3"
+            ],
+            "name": "librenms",
+            "version": "26.6.1,1"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "libslirp",
+            "version": "4.9.3"
+          },
+          {
+            "licenses": [
+              "LGPL21"
+            ],
+            "name": "libssh",
+            "version": "0.12.2"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "libssh2",
+            "version": "1.11.1_1,3"
+          },
+          {
+            "licenses": [
+              "LGPL21+",
+              "GPLv3"
+            ],
+            "name": "libtasn1",
+            "version": "4.21.0"
+          },
+          {
+            "licenses": [
+              "LGPL21+"
+            ],
+            "name": "libthai",
+            "version": "0.1.30"
+          },
+          {
+            "licenses": [
+              "GPLv2",
+              "GFDL",
+              "LGPL3+"
+            ],
+            "name": "libunistring",
+            "version": "1.4.2"
+          },
+          {
+            "licenses": [
+              "LGPL3"
+            ],
+            "name": "libvirt",
+            "version": "12.5.0"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libxcb",
+            "version": "1.17.0"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libxml2",
+            "version": "2.15.3"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "libzip",
+            "version": "1.11.4"
+          },
+          {
+            "licenses": [
+              "GPLv2"
+            ],
+            "name": "lzo2",
+            "version": "2.10_2"
+          },
+          {
+            "licenses": [
+              "GPLv2"
+            ],
+            "name": "mariadb118-client",
+            "version": "11.8.9"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "mkfontscale",
+            "version": "1.2.4"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "mpdecimal",
+            "version": "4.0.1"
+          },
+          {
+            "licenses": [
+              "GPLv2"
+            ],
+            "name": "mtr-nox11",
+            "version": "0.96"
+          },
+          {
+            "licenses": [
+              "GPLv3"
+            ],
+            "name": "nagios-plugins",
+            "version": "2.4.4_1,1"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "net-snmp",
+            "version": "5.9.5.2,1"
+          },
+          {
+            "licenses": [
+              "LGPL3",
+              "GPLv2+"
+            ],
+            "name": "nettle",
+            "version": "3.10.2"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "nginx",
+            "version": "1.30.4,3"
+          },
+          {
+            "licenses": [
+              "NPSL"
+            ],
+            "name": "nmap",
+            "version": "7.99_1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "oniguruma",
+            "version": "6.9.10"
+          },
+          {
+            "licenses": [
+              "OPENLDAP"
+            ],
+            "name": "openldap26-client",
+            "version": "2.6.13"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "p11-kit",
+            "version": "0.26.2"
+          },
+          {
+            "licenses": [
+              "LGPL21+"
+            ],
+            "name": "pango",
+            "version": "1.57.1"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "pcre2",
+            "version": "10.47_1"
+          },
+          {
+            "licenses": [
+              "ART10",
+              "GPLv1+"
+            ],
+            "name": "perl5",
+            "version": "5.42.3"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84",
+            "version": "8.4.24"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-ctype",
+            "version": "8.4.24"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-curl",
+            "version": "8.4.24"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-dom",
+            "version": "8.4.24"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-fileinfo",
+            "version": "8.4.24"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-filter",
+            "version": "8.4.24"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-gd",
+            "version": "8.4.24"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-iconv",
+            "version": "8.4.24"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-ldap",
+            "version": "8.4.24"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-mbstring",
+            "version": "8.4.24"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-mysqli",
+            "version": "8.4.24"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-pdo",
+            "version": "8.4.24"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-pdo_mysql",
+            "version": "8.4.24"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-phar",
+            "version": "8.4.24"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-posix",
+            "version": "8.4.24"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-readline",
+            "version": "8.4.24"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-session",
+            "version": "8.4.24"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-simplexml",
+            "version": "8.4.24"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-snmp",
+            "version": "8.4.24"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-sockets",
+            "version": "8.4.24"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-tokenizer",
+            "version": "8.4.24"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-xml",
+            "version": "8.4.24"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-xmlwriter",
+            "version": "8.4.24"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-zip",
+            "version": "8.4.24"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-zlib",
+            "version": "8.4.24"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "pixman",
+            "version": "0.46.4"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "pkg",
+            "version": "2.7.5"
+          },
+          {
+            "licenses": [
+              "Libpng"
+            ],
+            "name": "png",
+            "version": "1.6.58"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "py312-click",
+            "version": "8.3.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE",
+              "APACHE20"
+            ],
+            "name": "py312-packaging",
+            "version": "26.2"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "py312-psutil",
+            "version": "7.2.2_1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "py312-pymysql",
+            "version": "1.1.1_2"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "py312-python-dotenv",
+            "version": "1.2.2"
+          },
+          {
+            "name": "python3",
+            "version": "3_4"
+          },
+          {
+            "licenses": [
+              "PSFL"
+            ],
+            "name": "python312",
+            "version": "3.12.14"
+          },
+          {
+            "licenses": [
+              "GPLv3"
+            ],
+            "name": "readline",
+            "version": "8.3.3"
+          },
+          {
+            "licenses": [
+              "GPLv2"
+            ],
+            "name": "rrdtool",
+            "version": "1.10.3"
+          },
+          {
+            "licenses": [
+              "ISCL"
+            ],
+            "name": "s6",
+            "version": "2.14.0.1"
+          },
+          {
+            "licenses": [
+              "ISCL"
+            ],
+            "name": "skalibs",
+            "version": "2.14.5.1"
+          },
+          {
+            "licenses": [
+              "sudo"
+            ],
+            "name": "sudo",
+            "version": "1.9.17p2_2"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "tiff",
+            "version": "4.7.1_1"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "webp",
+            "version": "1.6.0"
+          },
+          {
+            "name": "wmi-client",
+            "version": "1.3.16_4"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "xorgproto",
+            "version": "2025.1"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE",
+              "GPLv2"
+            ],
+            "name": "zstd",
+            "version": "1.5.7_2"
+          }
+        ],
+        "go": [],
+        "java": [],
+        "node": [
+          {
+            "name": "ziggy-js",
+            "purl": "",
+            "version": "2.6.2"
+          }
+        ],
+        "php": [],
+        "python": [
+          {
+            "name": "click",
+            "purl": "",
+            "version": "8.3.1"
+          },
+          {
+            "name": "example",
+            "purl": "",
+            "version": "21.12"
+          },
+          {
+            "name": "packaging",
+            "purl": "",
+            "version": "26.2"
+          },
+          {
+            "name": "psutil",
+            "purl": "",
+            "version": "7.2.2"
+          },
+          {
+            "name": "pymysql",
+            "purl": "",
+            "version": "1.1.1"
+          },
+          {
+            "name": "python-dotenv",
+            "purl": "",
+            "version": "1.2.2"
+          }
+        ],
+        "ruby": [],
+        "rust": []
+      },
+      "source": "pkg",
+      "summary": {
+        "dotnet": 0,
+        "freebsd": 164,
+        "go": 0,
+        "java": 0,
+        "node": 1,
+        "php": 0,
+        "python": 6,
+        "ruby": 0,
+        "rust": 0,
+        "total": 171
+      }
+    },
+    "pkg-latest": {
+      "app_version": "26.9.1.1,1",
+      "arch": "amd64",
+      "generated": "2026-09-29T22:01:37Z",
+      "packages": {
+        "dotnet": [],
+        "freebsd": [
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-audit-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-blocklist",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-bzip2-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-certctl",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-clibs",
+            "version": "15.1p2"
+          },
+          {
+            "licenses": [
+              "CDDL-1.0"
+            ],
+            "name": "FreeBSD-ctf-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD-3-Clause"
+            ],
+            "name": "FreeBSD-dhclient",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-fetch",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-kerberos-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-libarchive",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-libbsdstat",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-libcasper",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-libcompiler_rt-dev",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-libexecinfo",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-libldns",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-libmagic",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-libucl",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-locales",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-mandoc",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-mtree",
+            "version": "15.1p2"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-ncurses-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-openssl",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-openssl-lib",
+            "version": "15.1p3"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-pam-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-pkg-bootstrap",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-rc",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-resolvconf",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-runtime",
+            "version": "15.1p3"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-tcpd",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-ufs-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-utilities",
+            "version": "15.1p2"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-xz-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "CDDL-1.0"
+            ],
+            "name": "FreeBSD-zfs-lib",
+            "version": "15.1p1"
+          },
+          {
+            "licenses": [
+              "Zlib"
+            ],
+            "name": "FreeBSD-zlib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "PD"
+            ],
+            "name": "FreeBSD-zoneinfo",
+            "version": "15.1p2"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "FreeBSD-zstd-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "GPLv3+"
+            ],
+            "name": "bash",
+            "version": "5.3.20"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "brotli",
+            "version": "1.2.0,1"
+          },
+          {
+            "licenses": [
+              "MPL20"
+            ],
+            "name": "ca_root_nss",
+            "version": "3.129"
+          },
+          {
+            "licenses": [
+              "LGPL21",
+              "MPL11"
+            ],
+            "name": "cairo",
+            "version": "1.18.2,3"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "curl",
+            "version": "8.22.0"
+          },
+          {
+            "licenses": [
+              "BSD4CLAUSE"
+            ],
+            "name": "cyrus-sasl",
+            "version": "2.1.28_6"
+          },
+          {
+            "licenses": [
+              "AMS",
+              "AREV",
+              "BITSTREAM"
+            ],
+            "name": "dejavu",
+            "version": "2.37_4"
+          },
+          {
+            "licenses": [
+              "GPLv2"
+            ],
+            "name": "dmidecode",
+            "version": "3.7"
+          },
+          {
+            "licenses": [
+              "GPLv2"
+            ],
+            "name": "dnsmasq",
+            "version": "2.93,1"
+          },
+          {
+            "licenses": [
+              "ISCL"
+            ],
+            "name": "execline",
+            "version": "2.9.8.1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "expat",
+            "version": "2.8.4"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "fontconfig",
+            "version": "2.17.1,1"
+          },
+          {
+            "licenses": [
+              "PreviousBSD"
+            ],
+            "name": "fping",
+            "version": "5.5"
+          },
+          {
+            "licenses": [
+              "GPLv2+",
+              "FTL"
+            ],
+            "name": "freetype2",
+            "version": "2.14.3"
+          },
+          {
+            "licenses": [
+              "LGPL21"
+            ],
+            "name": "fribidi",
+            "version": "1.0.16"
+          },
+          {
+            "licenses": [
+              "GPLv3+",
+              "LGPL21+"
+            ],
+            "name": "gettext-runtime",
+            "version": "1.0_1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "giflib",
+            "version": "6.1.3"
+          },
+          {
+            "licenses": [
+              "LGPL20"
+            ],
+            "name": "glib",
+            "version": "2.88.3,2"
+          },
+          {
+            "licenses": [
+              "LGPL3"
+            ],
+            "name": "gmp",
+            "version": "6.3.0"
+          },
+          {
+            "licenses": [
+              "GPLv3+",
+              "LGPL21+"
+            ],
+            "name": "gnutls",
+            "version": "3.8.13"
+          },
+          {
+            "licenses": [
+              "MPL20",
+              "GPLv2",
+              "LGPL21"
+            ],
+            "name": "graphite2",
+            "version": "1.3.15"
+          },
+          {
+            "licenses": [
+              "EPL"
+            ],
+            "name": "graphviz",
+            "version": "16.1.0"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "harfbuzz",
+            "version": "14.2.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "indexinfo",
+            "version": "0.3.1_1"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "ipmitool",
+            "version": "1.8.19_3"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "jansson",
+            "version": "2.15.1_1"
+          },
+          {
+            "licenses": [
+              "GPLv2+"
+            ],
+            "name": "jbigkit",
+            "version": "2.1_3"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE",
+              "IJG",
+              "ZLIB"
+            ],
+            "name": "jpeg-turbo",
+            "version": "3.1.4.1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "jq",
+            "version": "1.8.2"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "json-c",
+            "version": "0.19_1"
+          },
+          {
+            "licenses": [
+              "APACHE20"
+            ],
+            "name": "lerc",
+            "version": "4.2.0"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libICE",
+            "version": "1.1.2,1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libSM",
+            "version": "1.2.6,1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libX11",
+            "version": "1.8.13_1,1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libXau",
+            "version": "1.0.12"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libXaw",
+            "version": "1.0.16,2"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libXdmcp",
+            "version": "1.1.5"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libXext",
+            "version": "1.3.7,1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libXft",
+            "version": "2.3.9"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libXmu",
+            "version": "1.3.1,1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libXpm",
+            "version": "3.5.19"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libXrender",
+            "version": "0.9.12"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libXt",
+            "version": "1.3.1,1"
+          },
+          {
+            "licenses": [
+              "LGPL21+"
+            ],
+            "name": "libdatrie",
+            "version": "0.2.14_1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libdeflate",
+            "version": "1.26"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "libedit",
+            "version": "3.1.20260512,1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libffi",
+            "version": "3.8.0"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libfmt",
+            "version": "12.1.0"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libfontenc",
+            "version": "1.1.9"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libgd",
+            "version": "2.3.3_13,1"
+          },
+          {
+            "licenses": [
+              "GPLv3"
+            ],
+            "name": "libiconv",
+            "version": "1.18_1"
+          },
+          {
+            "licenses": [
+              "GPLv3"
+            ],
+            "name": "libidn2",
+            "version": "2.3.8"
+          },
+          {
+            "licenses": [
+              "LGPL21"
+            ],
+            "name": "libltdl",
+            "version": "2.6.2"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE",
+              "GPLv2"
+            ],
+            "name": "liblz4",
+            "version": "1.10.0_2,1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libnghttp2",
+            "version": "1.70.0"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "libpcap",
+            "version": "1.11.0"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libpsl",
+            "version": "0.23.3"
+          },
+          {
+            "licenses": [
+              "GPLv3"
+            ],
+            "name": "librenms",
+            "version": "26.9.1.1,1"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "libslirp",
+            "version": "4.9.5"
+          },
+          {
+            "licenses": [
+              "LGPL21"
+            ],
+            "name": "libssh",
+            "version": "0.12.2"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "libssh2",
+            "version": "1.11.1_1,3"
+          },
+          {
+            "licenses": [
+              "LGPL21+",
+              "GPLv3"
+            ],
+            "name": "libtasn1",
+            "version": "4.21.0"
+          },
+          {
+            "licenses": [
+              "LGPL21+"
+            ],
+            "name": "libthai",
+            "version": "0.1.30"
+          },
+          {
+            "licenses": [
+              "GPLv2",
+              "GFDL",
+              "LGPL3+"
+            ],
+            "name": "libunistring",
+            "version": "1.4.2"
+          },
+          {
+            "licenses": [
+              "LGPL3"
+            ],
+            "name": "libvirt",
+            "version": "12.7.0_1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libxcb",
+            "version": "1.17.0"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "libxml2",
+            "version": "2.15.4"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "libzip",
+            "version": "1.11.4"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "lua54",
+            "version": "5.4.8"
+          },
+          {
+            "licenses": [
+              "GPLv2"
+            ],
+            "name": "lzo2",
+            "version": "2.10_2"
+          },
+          {
+            "licenses": [
+              "GPLv2"
+            ],
+            "name": "mariadb118-client",
+            "version": "11.8.9"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "mkfontscale",
+            "version": "1.2.4"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "mpdecimal",
+            "version": "4.0.1"
+          },
+          {
+            "licenses": [
+              "GPLv2"
+            ],
+            "name": "mtr-nox11",
+            "version": "0.96"
+          },
+          {
+            "licenses": [
+              "GPLv3"
+            ],
+            "name": "nagios-plugins",
+            "version": "2.4.4_2,1"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "net-snmp",
+            "version": "5.9.5.2,1"
+          },
+          {
+            "licenses": [
+              "LGPL3",
+              "GPLv2+"
+            ],
+            "name": "nettle",
+            "version": "3.10.2"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "nginx",
+            "version": "1.30.5,3"
+          },
+          {
+            "licenses": [
+              "NPSL"
+            ],
+            "name": "nmap",
+            "version": "7.991"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "oniguruma",
+            "version": "6.9.10"
+          },
+          {
+            "licenses": [
+              "OPENLDAP"
+            ],
+            "name": "openldap26-client",
+            "version": "2.6.15_1"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "p11-kit",
+            "version": "0.26.5_1"
+          },
+          {
+            "licenses": [
+              "LGPL21+"
+            ],
+            "name": "pango",
+            "version": "1.57.1"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "pcre2",
+            "version": "10.48"
+          },
+          {
+            "licenses": [
+              "ART10",
+              "GPLv1+"
+            ],
+            "name": "perl5",
+            "version": "5.42.3"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84",
+            "version": "8.4.25"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-ctype",
+            "version": "8.4.25"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-curl",
+            "version": "8.4.25"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-dom",
+            "version": "8.4.25"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-fileinfo",
+            "version": "8.4.25"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-filter",
+            "version": "8.4.25"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-gd",
+            "version": "8.4.25"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-iconv",
+            "version": "8.4.25"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-ldap",
+            "version": "8.4.25"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-mbstring",
+            "version": "8.4.25"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-mysqli",
+            "version": "8.4.25"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-pdo",
+            "version": "8.4.25"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-pdo_mysql",
+            "version": "8.4.25"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-phar",
+            "version": "8.4.25"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-posix",
+            "version": "8.4.25"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-readline",
+            "version": "8.4.25"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-session",
+            "version": "8.4.25"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-simplexml",
+            "version": "8.4.25"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-snmp",
+            "version": "8.4.25"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-sockets",
+            "version": "8.4.25"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-tokenizer",
+            "version": "8.4.25"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-xml",
+            "version": "8.4.25"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-xmlwriter",
+            "version": "8.4.25"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-zip",
+            "version": "8.4.25"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
+            "name": "php84-zlib",
+            "version": "8.4.25"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "pixman",
+            "version": "0.46.4"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
+            "name": "pkg",
+            "version": "2.8.4"
+          },
+          {
+            "licenses": [
+              "Libpng"
+            ],
+            "name": "png",
+            "version": "1.6.58"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "py312-click",
+            "version": "8.3.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE",
+              "APACHE20"
+            ],
+            "name": "py312-packaging",
+            "version": "26.3"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "py312-psutil",
+            "version": "7.2.2_1"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "py312-pymysql",
+            "version": "1.2.0"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "py312-python-dotenv",
+            "version": "1.2.3"
+          },
+          {
+            "name": "python3",
+            "version": "3_4"
+          },
+          {
+            "licenses": [
+              "PSFL"
+            ],
+            "name": "python312",
+            "version": "3.12.14_1"
+          },
+          {
+            "licenses": [
+              "GPLv3"
+            ],
+            "name": "readline",
+            "version": "8.3.6"
+          },
+          {
+            "licenses": [
+              "GPLv2"
+            ],
+            "name": "rrdtool",
+            "version": "1.11.0"
+          },
+          {
+            "licenses": [
+              "ISCL"
+            ],
+            "name": "s6",
+            "version": "2.14.0.1"
+          },
+          {
+            "licenses": [
+              "ISCL"
+            ],
+            "name": "skalibs",
+            "version": "2.14.5.1"
+          },
+          {
+            "licenses": [
+              "sudo"
+            ],
+            "name": "sudo",
+            "version": "1.9.17p2_2"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "tiff",
+            "version": "4.7.2"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
+            "name": "webp",
+            "version": "1.6.0"
+          },
+          {
+            "name": "wmi-client",
+            "version": "1.3.16_4"
+          },
+          {
+            "licenses": [
+              "MIT"
+            ],
+            "name": "xorgproto",
+            "version": "2025.1"
+          },
+          {
+            "licenses": [
+              "BSD3CLAUSE",
+              "GPLv2"
+            ],
+            "name": "zstd",
+            "version": "1.5.7_2"
+          }
+        ],
+        "go": [],
+        "java": [],
+        "node": [
+          {
+            "name": "laravel-restify-docs",
+            "purl": "",
+            "version": "1.0.0"
+          },
+          {
+            "name": "ziggy-js",
+            "purl": "",
+            "version": "2.6.3"
+          }
+        ],
+        "php": [],
+        "python": [
+          {
+            "name": "click",
+            "purl": "",
+            "version": "8.3.1"
+          },
+          {
+            "name": "example",
+            "purl": "",
+            "version": "21.12"
+          },
+          {
+            "name": "packaging",
+            "purl": "",
+            "version": "26.3"
+          },
+          {
+            "name": "psutil",
+            "purl": "",
+            "version": "7.2.2"
+          },
+          {
+            "name": "pymysql",
+            "purl": "",
+            "version": "1.2.0"
+          },
+          {
+            "name": "python-dotenv",
+            "purl": "",
+            "version": "1.2.3"
+          }
+        ],
+        "ruby": [],
+        "rust": []
+      },
+      "source": "pkg",
+      "summary": {
+        "dotnet": 0,
+        "freebsd": 166,
+        "go": 0,
+        "java": 0,
+        "node": 2,
+        "php": 0,
+        "python": 6,
+        "ruby": 0,
+        "rust": 0,
+        "total": 174
+      }
+    }
+  }
+}

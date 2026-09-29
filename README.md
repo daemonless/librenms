@@ -31,53 +31,194 @@ Before deploying, ensure your host environment is ready. See the [Quick Start Gu
 
 ### Podman Compose
 
-**1.** Save as `.env` and fill in what is empty:
-
-```env { data-zip-bundle="librenms-podman" data-zip-filename=".env" }
-# LibreNMS for FreeBSD (Daemonless)
-# Copy to .env and edit.
-
-# Where data lives on the host
-CONFIG_LOCATION=/containers/librenms/config
-DB_DATA_LOCATION=/containers/librenms/mariadb
-
-# Database password: required, no default. On host networking MariaDB
-# listens on this host's port 3306, root included.
-DB_PASSWORD=
-# MariaDB root password; the database password unless set.
-# MYSQL_ROOT_PASSWORD=
-
-# Admin account created on first start. LibreNMS refuses passwords found in
-# known data leaks.
-ADMIN_USER=admin
-ADMIN_PASSWORD=
-
-# Optional: the address you open LibreNMS at, used in the links it sends.
-# APP_URL=http://192.168.1.10:8080
-
-# Timezone (TZ identifier)
-# TZ=UTC
-```
-
-**2.** Save as `compose.yaml`:
-
-```yaml { data-zip-bundle="librenms-podman" data-zip-filename="compose.yaml" }
-name: librenms
-
+```yaml
 services:
   librenms:
-    image: ghcr.io/daemonless/librenms:latest
+    image: "ghcr.io/daemonless/librenms:latest"
     container_name: librenms
-    network_mode: host
+    environment:
+      - PUID=1000  # User ID for the application process
+      - PGID=1000  # Group ID for the application process
+      - TZ=${TZ:-UTC}  # Timezone for the container
+      - DB_HOST=${DB_HOST:-127.0.0.1}  # Where LibreNMS finds MariaDB (fjord sets this; 127.0.0.1 on host networking)
+      - DB_PORT=3306  # MariaDB port
+      - DB_DATABASE=librenms  # Database name
+      - DB_USERNAME=librenms  # Database user
+      - DB_PASSWORD=${DB_PASSWORD}  # Password for the librenms database user
+      - ADMIN_USER=${ADMIN_USER}  # LibreNMS admin account, created on first start
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD}  # Password for that admin account
+      - APP_URL=${APP_URL:-}  # Address you open LibreNMS at, e.g. http://192.168.1.10:8080 (used in links it sends)
+      - MYSQL_ROOT_PASSWORD=<MYSQL_ROOT_PASSWORD>  # MariaDB root password (the database password unless set)
+      - CONFIG_LOCATION=  # Host folder for LibreNMS data: settings, RRD files, logs
+      - DB_DATA_LOCATION=  # Host folder for the MariaDB data
+    volumes:
+      - "/path/to/containers/librenms:/config"
+    ports:
+      - "8080:8080"
+    # always (not unless-stopped) so FreeBSD's podman rc.d auto-starts it at boot
     restart: always
-    depends_on:
-      - librenms-mariadb
+```
+
+Save as `compose.yaml`, then run `podman-compose up -d`.
+
+### AppJail Director
+**.env**:
+
+```
+# .env
+
+DIRECTOR_PROJECT=librenms
+PUID=1000
+PGID=1000
+TZ=${TZ:-UTC}
+DB_HOST=${DB_HOST:-127.0.0.1}
+DB_PORT=3306
+DB_DATABASE=librenms
+DB_USERNAME=librenms
+DB_PASSWORD=${DB_PASSWORD}
+ADMIN_USER=${ADMIN_USER}
+ADMIN_PASSWORD=${ADMIN_PASSWORD}
+APP_URL=${APP_URL:-}
+MYSQL_ROOT_PASSWORD=<MYSQL_ROOT_PASSWORD>
+CONFIG_LOCATION=
+DB_DATA_LOCATION=
+```
+
+**appjail-director.yml**:
+
+```yaml
+# appjail-director.yml
+
+options:
+  - virtualnet: ':<random> default'
+  - nat:
+services:
+  librenms:
+    name: librenms
+    options:
+      - container: 'args:--pull'
+      - expose: '8080:8080 proto:tcp'
+    oci:
+      user: root
+      environment:
+        - PUID: !ENV '${PUID}'
+        - PGID: !ENV '${PGID}'
+        - TZ: !ENV '${TZ}'
+        - DB_HOST: !ENV '${DB_HOST}'
+        - DB_PORT: !ENV '${DB_PORT}'
+        - DB_DATABASE: !ENV '${DB_DATABASE}'
+        - DB_USERNAME: !ENV '${DB_USERNAME}'
+        - DB_PASSWORD: !ENV '${DB_PASSWORD}'
+        - ADMIN_USER: !ENV '${ADMIN_USER}'
+        - ADMIN_PASSWORD: !ENV '${ADMIN_PASSWORD}'
+        - APP_URL: !ENV '${APP_URL}'
+        - MYSQL_ROOT_PASSWORD: !ENV '${MYSQL_ROOT_PASSWORD}'
+        - CONFIG_LOCATION: !ENV '${CONFIG_LOCATION}'
+        - DB_DATA_LOCATION: !ENV '${DB_DATA_LOCATION}'
+    volumes:
+      - librenms: /config
+volumes:
+  librenms:
+    device: '/path/to/containers/librenms'
+```
+
+**Makejail**:
+
+```
+# Makejail
+
+ARG tag=pkg
+
+OPTION container=boot
+OPTION overwrite=force
+OPTION from=ghcr.io/daemonless/librenms:${tag}
+```
+
+Save the files above, then run `appjail-director up`.
+
+
+> [!WARNING]
+> Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the jail's IPv4 address or hostname assigned by the virtual network.
+>
+> To avoid exposing ports, just remove the `expose` option in your `appjail-director.yml` or from your command-line arguments.
+
+### Podman CLI
+
+```bash
+podman run -d --name librenms \
+  -p 8080:8080 \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=${TZ:-UTC} \
+  -e DB_HOST=${DB_HOST:-127.0.0.1} \
+  -e DB_PORT=3306 \
+  -e DB_DATABASE=librenms \
+  -e DB_USERNAME=librenms \
+  -e DB_PASSWORD=${DB_PASSWORD} \
+  -e ADMIN_USER=${ADMIN_USER} \
+  -e ADMIN_PASSWORD=${ADMIN_PASSWORD} \
+  -e APP_URL=${APP_URL:-} \
+  -e MYSQL_ROOT_PASSWORD=<MYSQL_ROOT_PASSWORD> \
+  -e CONFIG_LOCATION= \
+  -e DB_DATA_LOCATION= \
+  -v /path/to/containers/librenms:/config \
+  ghcr.io/daemonless/librenms:latest
+```
+
+Save as `run.sh`, then run `sh run.sh`.
+
+### AppJail
+
+
+```bash
+appjail oci run -Pd \
+  -o overwrite=force \
+  -o container="args:--pull" \
+  -o virtualnet=":<random> default" \
+  -o nat \
+  -o expose="8080:8080 proto:tcp" \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=${TZ:-UTC} \
+  -e DB_HOST=${DB_HOST:-127.0.0.1} \
+  -e DB_PORT=3306 \
+  -e DB_DATABASE=librenms \
+  -e DB_USERNAME=librenms \
+  -e DB_PASSWORD=${DB_PASSWORD} \
+  -e ADMIN_USER=${ADMIN_USER} \
+  -e ADMIN_PASSWORD=${ADMIN_PASSWORD} \
+  -e APP_URL=${APP_URL:-} \
+  -e MYSQL_ROOT_PASSWORD=<MYSQL_ROOT_PASSWORD> \
+  -e CONFIG_LOCATION= \
+  -e DB_DATA_LOCATION= \
+  -o fstab="/path/to/containers/librenms /config <pseudofs>" \
+  ghcr.io/daemonless/librenms:latest librenms
+```
+
+Save the files above, then run `sh run.sh`.
+
+
+> [!WARNING]
+> Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the jail's IPv4 address or hostname assigned by the virtual network.
+>
+> To avoid exposing ports, just remove the `expose` option in your `appjail-director.yml` or from your command-line arguments.
+
+### Bastille
+
+> [!WARNING]
+> Bastille's OCI support is **experimental**. It requires `buildah` and shares the host network stack (`inherit`). Mount volumes with `--volume HOST JAIL`; without it, image-declared volumes are stored under `${bastille_volumesdir}/${jail}`.
+
+```yaml
+services:
+  librenms:
+    name: librenms
+    image: "ghcr.io/daemonless/librenms:latest"
+    network:
+      - mode: host
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=${TZ:-UTC}
-      # 127.0.0.1 on host networking; fjord sets the database's name when it
-      # puts the stack on a network (x-daemonless.hostnames).
       - DB_HOST=${DB_HOST:-127.0.0.1}
       - DB_PORT=3306
       - DB_DATABASE=librenms
@@ -85,32 +226,67 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
       - ADMIN_USER=${ADMIN_USER}
       - ADMIN_PASSWORD=${ADMIN_PASSWORD}
-      # Optional: the address LibreNMS puts in the links it sends (alerts).
       - APP_URL=${APP_URL:-}
+      - MYSQL_ROOT_PASSWORD=<MYSQL_ROOT_PASSWORD>
+      - CONFIG_LOCATION=
+      - DB_DATA_LOCATION=
     volumes:
-      - ${CONFIG_LOCATION}:/config
-    # Ignored on host networking; used when fjord puts the stack on a bridge.
-    ports:
-      - 8080:8080
-
-  librenms-mariadb:
-    image: ghcr.io/daemonless/mariadb:latest
-    container_name: librenms-mariadb
-    network_mode: host
-    restart: always
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=${TZ:-UTC}
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-${DB_PASSWORD}}
-      - MYSQL_DATABASE=librenms
-      - MYSQL_USER=librenms
-      - MYSQL_PASSWORD=${DB_PASSWORD}
-    volumes:
-      - ${DB_DATA_LOCATION}:/config
+      - "/path/to/containers/librenms:/config"
 ```
 
-Then run `podman-compose up -d`.
+Save as `bastille-compose.yml`, then run `bastille up`. Or via CLI:
+
+```bash
+bastille create -O \
+  --env PUID=1000 \
+  --env PGID=1000 \
+  --env TZ=${TZ:-UTC} \
+  --env DB_HOST=${DB_HOST:-127.0.0.1} \
+  --env DB_PORT=3306 \
+  --env DB_DATABASE=librenms \
+  --env DB_USERNAME=librenms \
+  --env DB_PASSWORD=${DB_PASSWORD} \
+  --env ADMIN_USER=${ADMIN_USER} \
+  --env ADMIN_PASSWORD=${ADMIN_PASSWORD} \
+  --env APP_URL=${APP_URL:-} \
+  --env MYSQL_ROOT_PASSWORD=<MYSQL_ROOT_PASSWORD> \
+  --env CONFIG_LOCATION= \
+  --env DB_DATA_LOCATION= \
+  --volume /path/to/containers/librenms /config \
+  librenms ghcr.io/daemonless/librenms:latest inherit
+```
+
+### Ansible
+
+```yaml
+- name: Deploy librenms
+  containers.podman.podman_container:
+    name: librenms
+    image: "ghcr.io/daemonless/librenms:latest"
+    state: started
+    restart_policy: always
+    env:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: "${TZ:-UTC}"
+      DB_HOST: "${DB_HOST:-127.0.0.1}"
+      DB_PORT: "3306"
+      DB_DATABASE: "librenms"
+      DB_USERNAME: "librenms"
+      DB_PASSWORD: "${DB_PASSWORD}"
+      ADMIN_USER: "${ADMIN_USER}"
+      ADMIN_PASSWORD: "${ADMIN_PASSWORD}"
+      APP_URL: "${APP_URL:-}"
+      MYSQL_ROOT_PASSWORD: "<MYSQL_ROOT_PASSWORD>"
+      CONFIG_LOCATION: ""
+      DB_DATA_LOCATION: ""
+    ports:
+      - "8080:8080"
+    volumes:
+      - "/path/to/containers/librenms:/config"
+```
+
+Save as `librenms-deploy.yaml`, then run `ansible-playbook librenms-deploy.yaml`.
 
 Access at: `http://localhost:8080`
 
@@ -122,18 +298,18 @@ Access at: `http://localhost:8080`
 |----------|---------|-------------|
 | `PUID` | `1000` | User ID for the application process |
 | `PGID` | `1000` | Group ID for the application process |
-| `TZ` | `UTC` | Timezone for the container |
-| `DB_HOST` | `127.0.0.1` | Where LibreNMS finds MariaDB (fjord sets this; 127.0.0.1 on host networking) |
+| `TZ` | `${TZ:-UTC}` | Timezone for the container |
+| `DB_HOST` | `${DB_HOST:-127.0.0.1}` | Where LibreNMS finds MariaDB (fjord sets this; 127.0.0.1 on host networking) |
 | `DB_PORT` | `3306` | MariaDB port |
 | `DB_DATABASE` | `librenms` | Database name |
 | `DB_USERNAME` | `librenms` | Database user |
-| `DB_PASSWORD` | `<DB_PASSWORD>` | Password for the librenms database user |
-| `ADMIN_USER` | `admin` | LibreNMS admin account, created on first start |
-| `ADMIN_PASSWORD` | `<ADMIN_PASSWORD>` | Password for that admin account |
-| `APP_URL` | `` | Address you open LibreNMS at, e.g. http://192.168.1.10:8080 (used in links it sends) |
+| `DB_PASSWORD` | `${DB_PASSWORD}` | Password for the librenms database user |
+| `ADMIN_USER` | `${ADMIN_USER}` | LibreNMS admin account, created on first start |
+| `ADMIN_PASSWORD` | `${ADMIN_PASSWORD}` | Password for that admin account |
+| `APP_URL` | `${APP_URL:-}` | Address you open LibreNMS at, e.g. http://192.168.1.10:8080 (used in links it sends) |
 | `MYSQL_ROOT_PASSWORD` | `<MYSQL_ROOT_PASSWORD>` | MariaDB root password (the database password unless set) |
-| `CONFIG_LOCATION` | `/containers/librenms/config` | Host folder for LibreNMS data: settings, RRD files, logs |
-| `DB_DATA_LOCATION` | `/containers/librenms/mariadb` | Host folder for the MariaDB data |
+| `CONFIG_LOCATION` | `` | Host folder for LibreNMS data: settings, RRD files, logs |
+| `DB_DATA_LOCATION` | `` | Host folder for the MariaDB data |
 
 ### Volumes
 

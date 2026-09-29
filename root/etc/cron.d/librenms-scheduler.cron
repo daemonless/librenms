@@ -1,0 +1,2 @@
+# Scheduler runs via s6 service (artisan schedule:work), not cron.
+# This file exists only to satisfy the LibreNMS validation check.

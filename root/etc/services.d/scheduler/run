@@ -1,0 +1,11 @@
+#!/bin/sh
+cd /usr/local/www/librenms
+
+# Wait for database tables to exist before starting scheduler
+while ! s6-setuidgid bsd php artisan config:get fping >/dev/null 2>&1; do
+    echo "[scheduler] waiting for LibreNMS database initialization..."
+    sleep 5
+done
+
+printf '\n' >&3
+exec s6-setuidgid bsd php artisan schedule:work --no-interaction

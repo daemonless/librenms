@@ -1,0 +1,30 @@
+#!/bin/sh
+# Run DB migrations on every start (idempotent; no-ops when up to date).
+# Skip if DB_HOST is not set or if we can't reach the database yet.
+
+: "${DB_HOST:=127.0.0.1}"
+: "${DB_PORT:=3306}"
+
+# Wait up to 60s for the DB to accept connections
+i=0
+until nc -z "$DB_HOST" "$DB_PORT" 2>/dev/null; do
+    i=$((i + 1))
+    if [ "$i" -ge 60 ]; then
+        echo "[librenms] WARNING: DB not reachable after 60s, skipping migrate"
+        exit 0
+    fi
+    echo "[librenms] waiting for DB ($DB_HOST:$DB_PORT)... ($i/60)"
+    sleep 1
+done
+
+# Skip migrate if web installer mode — it handles its own setup
+if grep -q "^INSTALL=true" /config/.env 2>/dev/null; then
+    echo "[librenms] INSTALL=true — skipping migrate (web installer will handle it)"
+    exit 0
+fi
+
+echo "[librenms] running artisan migrate..."
+cd /usr/local/www/librenms
+s6-setuidgid bsd php artisan migrate --force --no-interaction \
+    && echo "[librenms] migrate done" \
+    || echo "[librenms] WARNING: migrate failed (may be first-run — web installer will handle it)"

@@ -1,0 +1,13 @@
+#!/bin/sh
+# Ensure correct ownership of persistent data and log dirs
+chown -R bsd:bsd /config \
+                 /var/log/librenms \
+                 /usr/local/www/librenms
+chmod 775 /config/rrd
+
+# fping needs setuid root to open raw sockets; podman strips suid from image layers
+chmod u+s /usr/local/sbin/fping /usr/local/sbin/fping6 2>/dev/null || true
+
+# The storage symlink itself — make sure it resolves
+chown -h bsd:bsd /usr/local/www/librenms/storage \
+                 /usr/local/www/librenms/.env 2>/dev/null || true

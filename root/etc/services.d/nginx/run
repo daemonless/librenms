@@ -1,0 +1,4 @@
+#!/bin/sh
+# Override nginx-base run script to check port 8080 (not 80)
+s6-ready-when nc -z 127.0.0.1 8080
+exec /usr/local/sbin/nginx -g "daemon off;"

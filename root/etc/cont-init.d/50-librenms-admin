@@ -1,0 +1,29 @@
+#!/bin/sh
+# Create the admin account the install asked for (ADMIN_USER/ADMIN_PASSWORD),
+# once. Without it the only way in was `podman exec ... lnms user:add`.
+# Runs every start but only acts while that user does not exist.
+
+[ -n "${ADMIN_USER:-}" ] && [ -n "${ADMIN_PASSWORD:-}" ] || exit 0
+: "${DB_HOST:=127.0.0.1}"
+: "${DB_PORT:=3306}"
+
+nc -z "$DB_HOST" "$DB_PORT" 2>/dev/null || {
+    echo "[librenms] database not reachable; admin $ADMIN_USER not created"
+    exit 0
+}
+grep -q "^INSTALL=true" /config/.env 2>/dev/null && exit 0
+
+user_sql=$(printf '%s' "$ADMIN_USER" | sed "s/'/''/g")
+count=$(mariadb -N -h "$DB_HOST" -P "$DB_PORT" -u "${DB_USERNAME:-librenms}" -p"${DB_PASSWORD:-}" \
+    "${DB_DATABASE:-librenms}" -e "SELECT COUNT(*) FROM users WHERE username='$user_sql'" 2>/dev/null) || {
+    echo "[librenms] users table not ready; admin $ADMIN_USER not created"
+    exit 0
+}
+[ "$count" = "0" ] || exit 0
+
+cd /usr/local/www/librenms || exit 0
+if s6-setuidgid bsd ./lnms user:add --role=admin --password="$ADMIN_PASSWORD" --no-interaction "$ADMIN_USER"; then
+    echo "[librenms] created admin user $ADMIN_USER"
+else
+    echo "[librenms] WARNING: could not create admin $ADMIN_USER -- LibreNMS refuses passwords found in known data leaks; set another ADMIN_PASSWORD and restart"
+fi

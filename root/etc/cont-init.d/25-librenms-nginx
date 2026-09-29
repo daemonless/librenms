@@ -1,0 +1,4 @@
+#!/bin/sh
+# Set nginx server_name to the container hostname so LibreNMS validation passes.
+HOSTNAME=$(hostname)
+sed -i '' "s/server_name _;/server_name ${HOSTNAME} _;/" /usr/local/etc/nginx/conf.d/librenms.conf

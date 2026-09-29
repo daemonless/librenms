@@ -1,0 +1,76 @@
+#!/bin/sh
+# Wire up /config as persistent storage for LibreNMS.
+# The pkg creates /var/db/librenms; we replace it with a symlink to /config.
+
+mkdir -p /config/storage/app/public \
+         /config/storage/framework/cache \
+         /config/storage/framework/sessions \
+         /config/storage/framework/views \
+         /config/storage/logs \
+         /config/logs \
+         /config/rrd
+
+# Replace /var/db/librenms with a symlink to /config on first run
+if [ -d /var/db/librenms ] && [ ! -L /var/db/librenms ]; then
+    cp -a /var/db/librenms/. /config/ 2>/dev/null || true
+    rm -rf /var/db/librenms
+    ln -sf /config /var/db/librenms
+elif [ ! -e /var/db/librenms ]; then
+    ln -sf /config /var/db/librenms
+fi
+
+# rrd: symlink app dir → /config/rrd
+if [ ! -e /usr/local/www/librenms/rrd ]; then
+    ln -sf /config/rrd /usr/local/www/librenms/rrd
+fi
+
+# .env: symlink app dir → /config/.env
+if [ ! -L /usr/local/www/librenms/.env ]; then
+    rm -f /usr/local/www/librenms/.env
+    ln -sf /config/.env /usr/local/www/librenms/.env
+fi
+
+# Write .env on first run (or if missing)
+if [ ! -f /config/.env ]; then
+    cat > /config/.env << EOF
+APP_KEY=${APP_KEY:-}
+APP_URL=${APP_URL:-http://localhost:8080}
+DB_HOST=${DB_HOST:-127.0.0.1}
+DB_PORT=${DB_PORT:-3306}
+DB_DATABASE=${DB_DATABASE:-librenms}
+DB_USERNAME=${DB_USERNAME:-librenms}
+DB_PASSWORD=${DB_PASSWORD:-}
+NODE_ID=librenms-docker
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+QUEUE_DRIVER=database
+INSTALL=${INSTALL:-false}
+EOF
+    echo "[librenms] wrote /config/.env"
+fi
+
+# Keep the database settings and APP_URL in step with the environment. The
+# file above is written once; a later change must still reach it -- fjord
+# moving the stack onto its own network sets DB_HOST to the database's name.
+# Single-quoted so a password with # or $ is taken literally.
+set_env() {
+    [ -n "$2" ] || return 0
+    case "$2" in
+    *"'"*) echo "[librenms] WARNING: $1 contains a single quote; left as it was in /config/.env"; return 0 ;;
+    esac
+    tmp=$(mktemp /config/.env.XXXXXX) || return 0
+    K="$1" V="$2" awk 'index($0, ENVIRON["K"] "=") == 1 { print ENVIRON["K"] "='"'"'" ENVIRON["V"] "'"'"'"; done = 1; next }
+        { print }
+        END { if (!done) print ENVIRON["K"] "='"'"'" ENVIRON["V"] "'"'"'" }' /config/.env > "$tmp" && mv "$tmp" /config/.env
+}
+for key in DB_HOST DB_PORT DB_DATABASE DB_USERNAME DB_PASSWORD APP_URL; do
+    eval "val=\${$key:-}"
+    set_env "$key" "$val"
+done
+
+# Generate APP_KEY if still missing/empty
+if ! grep -q "^APP_KEY=.\+" /config/.env 2>/dev/null; then
+    KEY="base64:$(openssl rand -base64 32 | tr -d '\n')"
+    sed -i '' "s|^APP_KEY=.*|APP_KEY=${KEY}|" /config/.env
+    echo "[librenms] generated APP_KEY"
+fi

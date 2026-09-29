@@ -1,0 +1,36 @@
+# CIT test compose file
+name: librenms-test
+
+services:
+  librenms:
+    image: ghcr.io/daemonless/librenms:build
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - DB_HOST=127.0.0.1
+      - DB_PORT=3306
+      - DB_DATABASE=librenms
+      - DB_USERNAME=librenms
+      - DB_PASSWORD=testpass
+      - APP_URL=http://127.0.0.1:8080
+    volumes:
+      - librenms-config:/config
+    depends_on:
+      - mariadb
+
+  mariadb:
+    image: ghcr.io/daemonless/mariadb:latest
+    network_mode: host
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpass
+      - MYSQL_DATABASE=librenms
+      - MYSQL_USER=librenms
+      - MYSQL_PASSWORD=testpass
+    volumes:
+      - librenms-mariadb:/config
+
+volumes:
+  librenms-config:
+  librenms-mariadb:

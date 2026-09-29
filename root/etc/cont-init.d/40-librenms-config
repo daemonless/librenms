@@ -1,0 +1,40 @@
+#!/bin/sh
+# Set FreeBSD-specific binary paths in LibreNMS config.
+# whereis(1) on FreeBSD requires manpath; without it locateBinary() fails.
+# Setting explicit paths avoids the whereis lookup entirely.
+
+ARTISAN="s6-setuidgid bsd php /usr/local/www/librenms/artisan"
+
+# Skip if DB not reachable
+: "${DB_HOST:=127.0.0.1}"
+: "${DB_PORT:=3306}"
+nc -z "$DB_HOST" "$DB_PORT" 2>/dev/null || exit 0
+
+# Skip if INSTALL=true — DB tables don't exist yet
+if grep -q "^INSTALL=true" /config/.env 2>/dev/null; then
+    exit 0
+fi
+
+# Skip if tables don't exist yet (first run before installer)
+$ARTISAN config:get fping >/dev/null 2>&1 || exit 0
+
+echo "[librenms] setting FreeBSD binary paths and config..."
+$ARTISAN config:set base_url "${APP_URL:-}" 2>/dev/null || true
+$ARTISAN config:set fping        /usr/local/sbin/fping        2>/dev/null
+$ARTISAN config:set fping6       /usr/local/sbin/fping6       2>/dev/null
+$ARTISAN config:set rrdtool      /usr/local/bin/rrdtool       2>/dev/null
+$ARTISAN config:set snmpwalk     /usr/local/bin/snmpwalk      2>/dev/null
+$ARTISAN config:set snmpget      /usr/local/bin/snmpget       2>/dev/null
+$ARTISAN config:set snmpgetnext  /usr/local/bin/snmpgetnext   2>/dev/null
+$ARTISAN config:set snmpbulkwalk /usr/local/bin/snmpbulkwalk  2>/dev/null
+$ARTISAN config:set snmpbulkget  /usr/local/bin/snmpbulkget   2>/dev/null
+echo "[librenms] binary paths configured"
+
+# MariaDB 11.8 changed the default utf8mb4 collation to utf8mb4_uca1400_ai_ci.
+# ALTER DATABASE fixes what LibreNMS validation checks (information_schema.SCHEMATA).
+DB_USER="${DB_USERNAME:-librenms}"
+DB_PASS="${DB_PASSWORD:-}"
+DB_NAME="${DB_DATABASE:-librenms}"
+mariadb -h "$DB_HOST" -P "$DB_PORT" -u "$DB_USER" -p"$DB_PASS" \
+    -e "ALTER DATABASE \`$DB_NAME\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;" \
+    2>/dev/null && echo "[librenms] database collation set to utf8mb4_unicode_ci" || true

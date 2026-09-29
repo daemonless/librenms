@@ -1,0 +1,8 @@
+#!/bin/sh
+# Daemonless healthcheck for librenms
+
+if ! fetch -qo /dev/null --timeout 5 "http://127.0.0.1:8080/daemonless-ping" 2>/dev/null; then
+    exit 1
+fi
+
+exit 0

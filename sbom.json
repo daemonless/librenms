@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-29T22:03:18Z",
+  "generated": "2026-09-30T00:05:45Z",
   "image": "librenms",
   "tags": {
     "pkg": {
       "app_version": "26.6.1,1",
       "arch": "amd64",
-      "generated": "2026-09-29T22:01:24Z",
+      "generated": "2026-09-30T00:03:14Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -1232,7 +1232,7 @@
     "pkg-latest": {
       "app_version": "26.9.1.1,1",
       "arch": "amd64",
-      "generated": "2026-09-29T22:01:37Z",
+      "generated": "2026-09-30T00:03:04Z",
       "packages": {
         "dotnet": [],
         "freebsd": [

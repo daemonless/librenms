@@ -24,6 +24,13 @@ LibreNMS is an autodiscovering PHP/MySQL/SNMP based network monitoring which inc
 | `latest` / `pkg` | **FreeBSD Quarterly**. Uses stable, tested packages. | Production stability. |
 | `pkg-latest` | **FreeBSD Latest**. Rolling package updates. | Staying current. |
 
+## Parts
+
+| Service | Image | Role | |
+|---|---|---|---|
+| **librenms** | `ghcr.io/daemonless/librenms:latest` |  | [docs](https://github.com/daemonless/librenms) |
+| **librenms-mariadb** | `ghcr.io/daemonless/mariadb:latest` |  | [docs](https://github.com/daemonless/mariadb) |
+
 ## Prerequisites
 Before deploying, ensure your host environment is ready. See the [Quick Start Guide](https://daemonless.io/guides/quick-start) for host setup instructions.
 

@@ -14,8 +14,11 @@ nc -z "$DB_HOST" "$DB_PORT" 2>/dev/null || {
 grep -q "^INSTALL=true" /config/.env 2>/dev/null && exit 0
 
 user_sql=$(printf '%s' "$ADMIN_USER" | sed "s/'/''/g")
-count=$(mariadb -N -h "$DB_HOST" -P "$DB_PORT" -u "${DB_USERNAME:-librenms}" -p"${DB_PASSWORD:-}" \
-    "${DB_DATABASE:-librenms}" -e "SELECT COUNT(*) FROM users WHERE username='$user_sql'" 2>/dev/null) || {
+admins() {
+    mariadb -N -h "$DB_HOST" -P "$DB_PORT" -u "${DB_USERNAME:-librenms}" -p"${DB_PASSWORD:-}" \
+        "${DB_DATABASE:-librenms}" -e "SELECT COUNT(*) FROM users WHERE username='$user_sql'" 2>/dev/null
+}
+count=$(admins) || {
     echo "[librenms] users table not ready; admin $ADMIN_USER not created"
     exit 0
 }
@@ -34,7 +37,11 @@ uncompromised=$($LNMS config:get password.uncompromised 2>/dev/null)
 min_length=$($LNMS config:get password.min_length 2>/dev/null)
 $LNMS config:set password.uncompromised false >/dev/null 2>&1
 $LNMS config:set password.min_length 1 >/dev/null 2>&1
-if out=$($LNMS user:add --role=admin --password="$ADMIN_PASSWORD" --no-interaction "$ADMIN_USER" 2>&1); then
+# Judged by the database, not lnms's exit code: PHP 8.5's CLI can crash on
+# exit (SIGBUS/SIGSEGV) after the user is already added, and that 139 also
+# ended this script, so /init stopped the container on its first start.
+out=$($LNMS user:add --role=admin --password="$ADMIN_PASSWORD" --no-interaction "$ADMIN_USER" 2>&1)
+if [ "$(admins)" = "1" ]; then
     echo "[librenms] created admin user $ADMIN_USER"
 else
     echo "$out"
@@ -42,3 +49,4 @@ else
 fi
 $LNMS config:set password.uncompromised "${uncompromised:-true}" >/dev/null 2>&1
 $LNMS config:set password.min_length "${min_length:-8}" >/dev/null 2>&1
+exit 0

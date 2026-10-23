@@ -25,6 +25,6 @@ fi
 
 echo "[librenms] running artisan migrate..."
 cd /usr/local/www/librenms
-s6-setuidgid bsd php artisan migrate --force --no-interaction \
+dsu bsd php artisan migrate --force --no-interaction \
     && echo "[librenms] migrate done" \
     || echo "[librenms] WARNING: migrate failed (may be first-run — web installer will handle it)"

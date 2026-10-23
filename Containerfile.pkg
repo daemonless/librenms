@@ -64,19 +64,9 @@ RUN chown -R bsd:bsd /usr/local/www/librenms /var/db/librenms && \
 
 # Copy root filesystem
 COPY root/ /
+RUN chmod +x /daemonless/libexec/* /daemonless/init.d/*
 
-RUN chmod +x \
-    /etc/services.d/nginx/run \
-    /etc/services.d/php-fpm/run \
-    /etc/services.d/dispatcher/run \
-    /etc/services.d/scheduler/run \
-    /etc/cont-init.d/10-librenms-env \
-    /etc/cont-init.d/20-librenms-permissions \
-    /etc/cont-init.d/25-librenms-nginx \
-    /etc/cont-init.d/30-librenms-migrate \
-    /etc/cont-init.d/40-librenms-config \
-    /etc/cont-init.d/50-librenms-admin \
-    /healthz
+RUN chmod +x /healthz
 
 # --- Expose (Injected by Generator) ---
 EXPOSE 8080

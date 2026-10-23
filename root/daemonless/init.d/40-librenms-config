@@ -3,7 +3,7 @@
 # whereis(1) on FreeBSD requires manpath; without it locateBinary() fails.
 # Setting explicit paths avoids the whereis lookup entirely.
 
-ARTISAN="s6-setuidgid bsd php /usr/local/www/librenms/artisan"
+ARTISAN="dsu bsd php /usr/local/www/librenms/artisan"
 
 # Skip if DB not reachable
 : "${DB_HOST:=127.0.0.1}"

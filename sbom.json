@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-23T17:04:17Z",
+  "generated": "2026-10-23T18:23:45Z",
   "image": "librenms",
   "tags": {
     "pkg": {
       "app_version": "26.9.1.1,1",
       "arch": "amd64",
-      "generated": "2026-10-23T17:02:19Z",
+      "generated": "2026-10-23T18:10:20Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -1221,9 +1221,9 @@
       }
     },
     "pkg-latest": {
-      "app_version": "26.9.1.1,1",
+      "app_version": "26.10.2,1",
       "arch": "amd64",
-      "generated": "2026-10-23T16:59:02Z",
+      "generated": "2026-10-23T18:16:15Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -1506,7 +1506,7 @@
               "MIT"
             ],
             "name": "curl",
-            "version": "8.22.0"
+            "version": "8.23.0"
           },
           {
             "licenses": [
@@ -1625,7 +1625,7 @@
               "EPL"
             ],
             "name": "graphviz",
-            "version": "16.1.0_1"
+            "version": "16.1.0_2"
           },
           {
             "licenses": [
@@ -1880,7 +1880,7 @@
               "GPLv3"
             ],
             "name": "librenms",
-            "version": "26.9.1.1,1"
+            "version": "26.10.2,1"
           },
           {
             "licenses": [
@@ -2081,175 +2081,175 @@
               "PHP301"
             ],
             "name": "php85",
-            "version": "8.5.12"
+            "version": "8.5.12_1"
           },
           {
             "licenses": [
               "PHP301"
             ],
             "name": "php85-ctype",
-            "version": "8.5.12"
+            "version": "8.5.12_1"
           },
           {
             "licenses": [
               "PHP301"
             ],
             "name": "php85-curl",
-            "version": "8.5.12"
+            "version": "8.5.12_1"
           },
           {
             "licenses": [
               "PHP301"
             ],
             "name": "php85-dom",
-            "version": "8.5.12"
+            "version": "8.5.12_1"
           },
           {
             "licenses": [
               "PHP301"
             ],
             "name": "php85-fileinfo",
-            "version": "8.5.12"
+            "version": "8.5.12_1"
           },
           {
             "licenses": [
               "PHP301"
             ],
             "name": "php85-filter",
-            "version": "8.5.12"
+            "version": "8.5.12_1"
           },
           {
             "licenses": [
               "PHP301"
             ],
             "name": "php85-gd",
-            "version": "8.5.12"
+            "version": "8.5.12_1"
           },
           {
             "licenses": [
               "PHP301"
             ],
             "name": "php85-iconv",
-            "version": "8.5.12"
+            "version": "8.5.12_1"
           },
           {
             "licenses": [
               "PHP301"
             ],
             "name": "php85-ldap",
-            "version": "8.5.12"
+            "version": "8.5.12_1"
           },
           {
             "licenses": [
               "PHP301"
             ],
             "name": "php85-mbstring",
-            "version": "8.5.12"
+            "version": "8.5.12_1"
           },
           {
             "licenses": [
               "PHP301"
             ],
             "name": "php85-mysqli",
-            "version": "8.5.12"
+            "version": "8.5.12_1"
           },
           {
             "licenses": [
               "PHP301"
             ],
             "name": "php85-pdo",
-            "version": "8.5.12"
+            "version": "8.5.12_1"
           },
           {
             "licenses": [
               "PHP301"
             ],
             "name": "php85-pdo_mysql",
-            "version": "8.5.12"
+            "version": "8.5.12_1"
           },
           {
             "licenses": [
               "PHP301"
             ],
             "name": "php85-phar",
-            "version": "8.5.12"
+            "version": "8.5.12_1"
           },
           {
             "licenses": [
               "PHP301"
             ],
             "name": "php85-posix",
-            "version": "8.5.12"
+            "version": "8.5.12_1"
           },
           {
             "licenses": [
               "PHP301"
             ],
             "name": "php85-readline",
-            "version": "8.5.12"
+            "version": "8.5.12_1"
           },
           {
             "licenses": [
               "PHP301"
             ],
             "name": "php85-session",
-            "version": "8.5.12"
+            "version": "8.5.12_1"
           },
           {
             "licenses": [
               "PHP301"
             ],
             "name": "php85-simplexml",
-            "version": "8.5.12"
+            "version": "8.5.12_1"
           },
           {
             "licenses": [
               "PHP301"
             ],
             "name": "php85-snmp",
-            "version": "8.5.12"
+            "version": "8.5.12_1"
           },
           {
             "licenses": [
               "PHP301"
             ],
             "name": "php85-sockets",
-            "version": "8.5.12"
+            "version": "8.5.12_1"
           },
           {
             "licenses": [
               "PHP301"
             ],
             "name": "php85-tokenizer",
-            "version": "8.5.12"
+            "version": "8.5.12_1"
           },
           {
             "licenses": [
               "PHP301"
             ],
             "name": "php85-xml",
-            "version": "8.5.12"
+            "version": "8.5.12_1"
           },
           {
             "licenses": [
               "PHP301"
             ],
             "name": "php85-xmlwriter",
-            "version": "8.5.12"
+            "version": "8.5.12_1"
           },
           {
             "licenses": [
               "PHP301"
             ],
             "name": "php85-zip",
-            "version": "8.5.12"
+            "version": "8.5.12_1"
           },
           {
             "licenses": [
               "PHP301"
             ],
             "name": "php85-zlib",
-            "version": "8.5.12"
+            "version": "8.5.12_1"
           },
           {
             "licenses": [
@@ -2385,7 +2385,7 @@
           {
             "name": "ziggy-js",
             "purl": "",
-            "version": "2.6.3"
+            "version": "2.6.4"
           }
         ],
         "php": [],

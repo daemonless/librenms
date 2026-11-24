@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-19T08:45:39Z",
+  "generated": "2026-11-24T10:52:31Z",
   "image": "librenms",
   "tags": {
     "pkg": {
@@ -1221,9 +1221,9 @@
       }
     },
     "pkg-latest": {
-      "app_version": "26.10.2_1,1",
+      "app_version": "26.11.0,1",
       "arch": "amd64",
-      "generated": "2026-11-19T08:43:20Z",
+      "generated": "2026-11-24T10:50:44Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -1484,7 +1484,7 @@
               "MIT"
             ],
             "name": "brotli",
-            "version": "1.2.1,1"
+            "version": "1.2.1_1,1"
           },
           {
             "licenses": [
@@ -1880,14 +1880,14 @@
               "GPLv3"
             ],
             "name": "librenms",
-            "version": "26.10.2_1,1"
+            "version": "26.11.0,1"
           },
           {
             "licenses": [
               "BSD3CLAUSE"
             ],
             "name": "libslirp",
-            "version": "4.9.5"
+            "version": "4.9.7"
           },
           {
             "licenses": [
@@ -1974,7 +1974,7 @@
               "GPLv2"
             ],
             "name": "mariadb118-client",
-            "version": "11.8.9"
+            "version": "11.8.10"
           },
           {
             "licenses": [
@@ -2157,6 +2157,13 @@
             "licenses": [
               "PHP301"
             ],
+            "name": "php85-pcntl",
+            "version": "8.5.12_2"
+          },
+          {
+            "licenses": [
+              "PHP301"
+            ],
             "name": "php85-pdo",
             "version": "8.5.12_2"
           },
@@ -2263,11 +2270,11 @@
               "BSD2CLAUSE"
             ],
             "name": "pkg",
-            "version": "2.9.2"
+            "version": "2.9.3"
           },
           {
             "licenses": [
-              "Libpng"
+              "libpng-2.0"
             ],
             "name": "png",
             "version": "1.6.59_1"
@@ -2376,9 +2383,14 @@
             "version": "1.0.0"
           },
           {
+            "name": "laravel-restify-docs-v3",
+            "purl": "",
+            "version": "1.0.0"
+          },
+          {
             "name": "ziggy-js",
             "purl": "",
-            "version": "2.6.4"
+            "version": "2.6.5"
           }
         ],
         "php": [],
@@ -2420,15 +2432,15 @@
       "source": "pkg",
       "summary": {
         "dotnet": 0,
-        "freebsd": 161,
+        "freebsd": 162,
         "go": 0,
         "java": 0,
-        "node": 2,
+        "node": 3,
         "php": 0,
         "python": 6,
         "ruby": 0,
         "rust": 0,
-        "total": 169
+        "total": 171
       }
     }
   }
